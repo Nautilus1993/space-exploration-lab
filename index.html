@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="中国科学院空间应用工程与技术中心空间探索技术研究室招生介绍">
+    <meta name="keywords" content="空间探索技术研究室, 中国科学院空间应用工程与技术中心, 招生, 地月空间, 深空探测, 人工智能">
+    <meta name="theme-color" content="#000000">
+    <title>空间探索技术研究室 - 招生介绍</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+    <link rel="stylesheet" href="css/syntax.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&family=Orbitron:wght@900&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #000000 !important;
+            color: #e2e8f0 !important;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: #58a6ff;
+        }
+
+        a:hover,
+        a:focus {
+            color: #a475f9;
+            text-decoration: none;
+        }
+
+        p {
+            margin: 0 0 18px;
+        }
+
+        .container,
+        .row,
+        .postlist-container {
+            background-color: transparent !important;
+        }
+
+        .navbar {
+            opacity: 0;
+            animation: ui-fade-in 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 1.8s forwards;
+            z-index: 10000 !important;
+            pointer-events: auto !important;
+        }
+
+        .navbar-custom {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(88, 166, 255, 0.1);
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav li a {
+            color: #f8fafc !important;
+            letter-spacing: 0 !important;
+        }
+
+        .navbar-custom .navbar-brand:hover,
+        .navbar-custom .nav li a:hover {
+            color: #58a6ff !important;
+        }
+
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #f8fafc;
+        }
+
+        header.intro-header {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background-color: #000000 !important;
+            background-image: linear-gradient(to bottom, #000000 0%, #03060c 80%, #081121 100%) !important;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(88, 166, 255, 0.1);
+            display: block;
+            margin-bottom: 0;
+        }
+
+        #dynamic-stars-container {
+            position: absolute;
+            top: -50vh;
+            left: -50vw;
+            width: 200vw;
+            height: 200vh;
+            pointer-events: none;
+        }
+
+        .star-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+        }
+
+        @keyframes animStar {
+            from {
+                transform: translate(50vw, -50vh);
+            }
+            to {
+                transform: translate(-50vw, 50vh);
+            }
+        }
+
+        @keyframes moon-entrance {
+            0% {
+                transform: translate(-50%, -50%) scale(1.6);
+                box-shadow: 0 0 200px rgba(255, 255, 255, 0.8);
+                filter: brightness(1.5) contrast(1.2);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 100px rgba(226, 232, 240, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.8);
+                filter: brightness(1) contrast(1);
+            }
+        }
+
+        @keyframes ui-fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes ui-text-reveal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+                filter: blur(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .comet {
+            position: absolute;
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+            border-radius: 50%;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+            transform: rotate(-45deg);
+            opacity: 0;
+            animation: shootingStar 8s linear infinite;
+            z-index: 2;
+        }
+
+        .comet:nth-child(2) {
+            top: 10%;
+            right: -10%;
+            animation-delay: 0s;
+        }
+
+        .comet:nth-child(3) {
+            top: -10%;
+            right: 20%;
+            animation-delay: 3.5s;
+            width: 250px;
+        }
+
+        .comet:nth-child(4) {
+            top: 30%;
+            right: -20%;
+            animation-delay: 6s;
+        }
+
+        @keyframes shootingStar {
+            0% {
+                transform: translateX(0) translateY(0) rotate(-45deg);
+                opacity: 1;
+            }
+            20% {
+                transform: translateX(-100vw) translateY(100vw) rotate(-45deg);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(-100vw) translateY(100vw) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+
+        header.intro-header .container {
+            position: relative;
+            z-index: 5;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        header.intro-header .site-heading {
+            position: absolute;
+            bottom: 8%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            opacity: 0;
+            animation: ui-text-reveal 2s cubic-bezier(0.1, 0.9, 0.2, 1) 1.2s forwards;
+            padding: 0 20px;
+        }
+
+        header.intro-header .site-heading h1 {
+            font-family: 'Orbitron', 'Montserrat', sans-serif !important;
+            font-size: 8rem;
+            font-weight: 900 !important;
+            letter-spacing: 0 !important;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin: 0;
+            position: relative;
+            text-shadow:
+                0 0 10px rgba(88, 166, 255, 0.8),
+                0 0 20px rgba(88, 166, 255, 0.4),
+                0 0 40px rgba(88, 166, 255, 0.2);
+        }
+
+        header.intro-header .site-heading .subheading.eng {
+            display: block;
+            color: #a475f9;
+            font-family: 'Orbitron', 'Montserrat', sans-serif;
+            text-shadow: 0 0 20px rgba(164, 117, 249, 0.8);
+            letter-spacing: 0 !important;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        header.intro-header .site-heading .subheading.chn {
+            display: inline-block;
+            color: #cbd5e1;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            letter-spacing: 0 !important;
+            font-weight: 700;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, #a475f9 0%, #58a6ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .moon-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            z-index: 3;
+            border-radius: 50%;
+            background-color: #111;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 100px rgba(226, 232, 240, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            animation: moon-entrance 3s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+        }
+
+        .moon-phase-shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 50%;
+            transition: transform 1s ease-in-out;
+        }
+
+        .se-main-content {
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 50px;
+            opacity: 0;
+            animation: ui-fade-in 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 2.2s forwards;
+        }
+
+        .se-video-container {
+            background: rgba(10, 15, 25, 0.9);
+            border: 1px solid rgba(88, 166, 255, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95), 0 0 20px rgba(88, 166, 255, 0.05);
+            backdrop-filter: blur(12px);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .se-intro-panel {
+            padding: 38px;
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.05), rgba(0, 0, 0, 0.95));
+        }
+
+        .se-intro-eyebrow,
+        .se-card-subtitle,
+        .se-feed-date,
+        .se-gallery-caption,
+        .se-meta {
+            letter-spacing: 0 !important;
+        }
+
+        .se-intro-eyebrow {
+            color: #58a6ff;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .se-intro-panel h2 {
+            color: #f1f5f9;
+            font-weight: 800;
+            margin: 0 0 18px;
+            font-size: 2.2rem;
+            line-height: 1.2;
+        }
+
+        .se-intro-panel p {
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .se-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .se-stat {
+            border-top: 1px solid rgba(88, 166, 255, 0.2);
+            padding-top: 14px;
+        }
+
+        .se-stat strong {
+            display: block;
+            color: #ffffff;
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-bottom: 8px;
+            text-shadow: 0 0 12px rgba(88, 166, 255, 0.35);
+        }
+
+        .se-stat span {
+            display: block;
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.35;
+        }
+
+        .se-section {
+            margin-bottom: 60px;
+        }
+
+        .se-feed-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 0 30px;
+            color: #f1f5f9;
+            border-left: 4px solid #58a6ff;
+            padding-left: 15px;
+        }
+
+        .se-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .se-gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background: #0d1b2a;
+            border: 1px solid rgba(164, 117, 249, 0.15);
+            cursor: default;
+        }
+
+        .se-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .se-gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .se-gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 9px 12px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
+            color: #cbd5e1;
+            font-size: 0.85rem;
+        }
+
+        .se-grid {
+            margin-bottom: 60px;
+        }
+
+        .se-card {
+            background-color: rgba(6, 10, 18, 0.7);
+            border: 1px solid rgba(88, 166, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 30px);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .se-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(226, 232, 240, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(88, 166, 255, 0.1);
+        }
+
+        .se-card-body {
+            padding: 24px;
+            flex: 1;
+        }
+
+        .se-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-top: 0;
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .se-card-subtitle {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 16px;
+            line-height: 1.45;
+        }
+
+        .se-card-desc {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .se-card-tag {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.85);
+            color: #cbd5e1;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            margin-bottom: 14px;
+        }
+
+        .se-topic-list {
+            padding-left: 18px;
+            margin: 14px 0 0;
+            color: #94a3b8;
+            line-height: 1.65;
+            font-size: 0.92rem;
+        }
+
+        .se-topic-list li {
+            margin-bottom: 6px;
+        }
+
+        .se-feed-container {
+            border-top: 1px solid rgba(88, 166, 255, 0.1);
+            padding-top: 40px;
+        }
+
+        .se-feed-item {
+            background: rgba(5, 8, 15, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            min-height: 146px;
+        }
+
+        .se-feed-item:hover {
+            background: rgba(10, 16, 28, 0.9);
+            border-color: rgba(88, 166, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .se-feed-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .se-feed-date {
+            color: #475569;
+            font-size: 0.85rem;
+        }
+
+        .se-feed-header h4 {
+            margin: 0 0 8px;
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            line-height: 1.4;
+        }
+
+        .se-feed-desc {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.65;
+        }
+
+        .plat-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            color: white;
+            text-transform: uppercase;
+            white-space: nowrap;
+            letter-spacing: 0 !important;
+        }
+
+        .se-event-button {
+            display: inline-block;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, #a475f9 0%, #58a6ff 100%);
+            color: #fff !important;
+            font-size: 1.05rem;
+            font-weight: 800;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0 !important;
+            text-decoration: none !important;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(164, 117, 249, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.4);
+            transition: all 0.3s;
+        }
+
+        .se-event-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(88, 166, 255, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .se-final {
+            margin-bottom: 80px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 50px;
+        }
+
+        .se-final h2 {
+            color: #f1f5f9;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .se-final p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #050b14;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px 0;
+        }
+
+        footer .copyright {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        @media (max-width: 991px) {
+            .se-stat-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-default .navbar-collapse {
+                background: rgba(5, 8, 15, 0.96);
+                border: 1px solid rgba(88, 166, 255, 0.2);
+            }
+
+            header.intro-header .site-heading h1 {
+                font-size: clamp(2.45rem, 10vw, 3.2rem);
+            }
+
+            header.intro-header .site-heading .subheading.eng {
+                font-size: 0.9rem;
+            }
+
+            header.intro-header .site-heading .subheading.chn {
+                font-size: 1rem;
+            }
+
+            .moon-container {
+                width: min(320px, 78vw);
+                height: min(320px, 78vw);
+            }
+
+            .se-main-content {
+                margin-top: -30px;
+            }
+
+            .se-intro-panel {
+                padding: 26px 20px;
+            }
+
+            .se-intro-panel h2 {
+                font-size: 1.7rem;
+            }
+
+            .se-stat-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .se-feed-meta {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 420px) {
+            header.intro-header .site-heading h1 {
+                font-size: clamp(2.25rem, 9vw, 2.5rem);
+            }
+
+            .moon-container {
+                width: min(280px, 72vw);
+                height: min(280px, 72vw);
+            }
+
+            .se-stat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body ontouchstart="">
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#top">空间探索技术研究室</a>
+            </div>
+
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#top">Home</a></li>
+                        <li><a href="#intro">Lab</a></li>
+                        <li><a href="#advisors">Advisors</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="top" class="intro-header video-hero-header">
+        <div id="dynamic-stars-container">
+            <div class="star-layer" id="layer-small" style="animation: animStar 200s linear infinite; opacity: 0.4;"></div>
+            <div class="star-layer" id="layer-medium" style="animation: animStar 120s linear infinite; opacity: 0.6;"></div>
+            <div class="star-layer" id="layer-large" style="animation: animStar 70s linear infinite; opacity: 1;"></div>
+        </div>
+
+        <div class="comet"></div>
+        <div class="comet"></div>
+        <div class="comet"></div>
+
+        <div class="container">
+            <div class="moon-container" title="NASA 实时月相推演">
+                <div class="moon-phase-shadow" id="moon-phase-shadow"></div>
+            </div>
+
+            <div class="site-heading">
+                <h1>SPACE<span class="x">-LAB</span></h1>
+                <span class="subheading eng">Space Exploration Technology Laboratory</span>
+                <br>
+                <span class="subheading chn">空间探索技术研究室</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container se-main-content">
+        <section id="intro" class="row se-section">
+            <div class="col-lg-10 col-lg-offset-1 col-md-12">
+                <div class="se-video-container">
+                    <div class="se-intro-panel">
+                        <div class="se-intro-eyebrow">2027 Graduate Admission</div>
+                        <h2>以 AI 引领太空探索，面向地月空间与深空任务培养交叉型科研人才</h2>
+                        <p>
+                            空间探索技术研究室秉承中国科学院开拓创新精神，以国家空间强国战略为纲领，开展基础性航天工程前沿理论研究与先进探索技术研发，提出新概念空间探索任务方案，推动革命性空间探索新技术的发展。研究室以 AI 引领太空探索为目标，以任务培育新学科方向，以学科优势制高点带动新任务落实。
+                        </p>
+                        <p>
+                            学科方向主要包括 AI 赋能空间广域可达自主智能技术、AI4 空间科学前瞻性研究等，研究内容覆盖深空环境感知、空间自主智能飞行、多智能体协同导航、航天器 GNSS 与多源观测融合相对导航、月球及深空可持续探索技术。
+                        </p>
+                        <div class="se-stat-grid">
+                            <div class="se-stat"><strong>16</strong><span>固定人员</span></div>
+                            <div class="se-stat"><strong>30+</strong><span>在读研究生</span></div>
+                            <div class="se-stat"><strong>4</strong><span>研究员及正高级工程师</span></div>
+                            <div class="se-stat"><strong>5</strong><span>副研究员及副高级工程师</span></div>
+                            <div class="se-stat"><strong>3</strong><span>中国科学院人才计划</span></div>
+                            <div class="se-stat"><strong>5</strong><span>招生导师信息已公布</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row se-section">
+            <div class="col-lg-12">
+                <h2 class="se-feed-title" style="border-left-color: #a475f9;">导师图库 (Advisor Gallery)</h2>
+            </div>
+            <div class="col-lg-12">
+                <div class="se-gallery">
+                    <div class="se-gallery-item">
+                        <img src="万雪.jpg" alt="万雪">
+                        <div class="se-gallery-caption">万雪 · 博导</div>
+                    </div>
+                    <div class="se-gallery-item">
+                        <img src="舒磊正.jpg" alt="舒磊正">
+                        <div class="se-gallery-caption">舒磊正 · 博导</div>
+                    </div>
+                    <div class="se-gallery-item">
+                        <img src="王蜀泉.jpg" alt="王蜀泉">
+                        <div class="se-gallery-caption">王蜀泉 · 博导</div>
+                    </div>
+                    <div class="se-gallery-item">
+                        <img src="何煜.jpg" alt="何煜">
+                        <div class="se-gallery-caption">何煜 · 硕导</div>
+                    </div>
+                    <div class="se-gallery-item">
+                        <img src="张碧辉.jpg" alt="张碧辉">
+                        <div class="se-gallery-caption">张碧辉 · 博导</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="advisors" class="row se-grid">
+            <div class="col-lg-12">
+                <h2 class="se-feed-title" style="border-left-color: #e2a02b;">招生导师阵列 (Advisor Matrix)</h2>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <span class="se-card-tag">博导</span>
+                        <h3 class="se-card-title">万雪</h3>
+                        <div class="se-card-subtitle">计算机应用技术、信号与信息处理、电子信息</div>
+                        <p class="se-card-desc">研究员，博士生导师。主要从事深空场景感知、视觉导航定位技术及海量空间科学数据语义理解等研究。</p>
+                        <ul class="se-topic-list">
+                            <li>地月空间作为多智能体决策大脑的大模型研究</li>
+                            <li>地月空间具身智能感知、规划、决策前沿课题研究</li>
+                            <li>地月空间大模型针对新概念科学发现的应用探索和研究</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <span class="se-card-tag">博导</span>
+                        <h3 class="se-card-title">舒磊正</h3>
+                        <div class="se-card-subtitle">GNSS 导航技术、计算机视觉导航技术、多源信息融合自主导航技术</div>
+                        <p class="se-card-desc">研究员，博士生导师。聚焦航天器自主轨道确定、相对导航、空间 SLAM 及多智能体协同导航。</p>
+                        <ul class="se-topic-list">
+                            <li>基于光钟的地月空间基准构建和分布式授时关键技术研究</li>
+                            <li>DRO 支持下月面活动自主探测技术</li>
+                            <li>基于星间测量的分布式定轨与时间同步</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <span class="se-card-tag">博导</span>
+                        <h3 class="se-card-title">王蜀泉</h3>
+                        <div class="se-card-subtitle">飞行器设计、计算机应用技术</div>
+                        <p class="se-card-desc">中国科学院特聘核心岗位研究员，博士生导师。研究方向覆盖多学科任务设计与优化、复杂系统动力学与控制。</p>
+                        <ul class="se-topic-list">
+                            <li>地月空间光钟稳定运行多学科优化</li>
+                            <li>复杂系统动力学与控制</li>
+                            <li>地月空间专项时空基准卫星任务设计与实施</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <span class="se-card-tag">硕导</span>
+                        <h3 class="se-card-title">何煜</h3>
+                        <div class="se-card-subtitle">计算机应用技术、航空宇航科学与技术</div>
+                        <p class="se-card-desc">副研究员，硕士生导师。主要从事计算机图形学、扩展现实、人机交互及航天工程应用研究。</p>
+                        <ul class="se-topic-list">
+                            <li>空间任务可视仿真与人机交互</li>
+                            <li>地月空间场景建模与真实感渲染</li>
+                            <li>天地协同混合现实引导系统与任务可视化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <span class="se-card-tag">博导</span>
+                        <h3 class="se-card-title">张碧辉</h3>
+                        <div class="se-card-subtitle">飞行器多源组合导航、视觉感知、FPGA 深度学习算法部署</div>
+                        <p class="se-card-desc">高级工程师，围绕无人飞行器多源组合导航、星载 AI 计算机设计、功能安全神经网络推理部署开展研究。</p>
+                        <ul class="se-topic-list">
+                            <li>合作场景飞行器智能导航</li>
+                            <li>基于合作靶标进行飞行器视觉相对定位</li>
+                            <li>基于视觉、惯性导航等多模态数据进行飞行器异常状态监测</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="row se-grid">
+            <div class="col-lg-12">
+                <h2 class="se-feed-title">研究方向阵列 (Research Matrix)</h2>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <h3 class="se-card-title">深空环境感知与预测</h3>
+                        <p class="se-card-desc">面向深空复杂环境，开展智能感知、语义理解、场景预测与任务支撑技术研究。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <h3 class="se-card-title">空间广域可达自主智能飞行技术</h3>
+                        <p class="se-card-desc">研究空间飞行器在广域空间中的自主规划、智能控制与安全飞行能力。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <h3 class="se-card-title">分布式多智能体协同导航与自主决策</h3>
+                        <p class="se-card-desc">探索多星、多机器人、多载荷协同场景下的导航、授时、任务分配与决策算法。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <h3 class="se-card-title">航天器 GNSS 及多源观测融合相对导航</h3>
+                        <p class="se-card-desc">发展高精度相对导航、星间测量、视觉导航与多源信息融合技术。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <h3 class="se-card-title">AI4 空间科学前瞻性研究</h3>
+                        <p class="se-card-desc">推动人工智能与空间科学任务深度结合，探索新概念科学发现与智能数据理解。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <div class="se-card">
+                    <div class="se-card-body">
+                        <h3 class="se-card-title">月球及深空可持续探索技术</h3>
+                        <p class="se-card-desc">面向月球、地月空间与深空任务，开展可持续探测、建模、仿真和工程验证。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row se-feed-container">
+            <div class="col-md-6" style="margin-bottom:40px;">
+                <h2 class="se-feed-title">科研条件 (Facilities)</h2>
+                <div class="se-feed-item">
+                    <div class="se-feed-meta">
+                        <span class="plat-badge" style="background-color:#24292e;">GNSS</span>
+                        <span class="se-feed-date">Navigation Payload</span>
+                    </div>
+                    <div class="se-feed-header"><h4>星载 GNSS 导航接收机设计与研发技术体系</h4></div>
+                    <p class="se-feed-desc">支撑星载导航接收机、相对测量载荷和多源融合导航相关研究与工程验证。</p>
+                </div>
+                <div class="se-feed-item">
+                    <div class="se-feed-meta">
+                        <span class="plat-badge" style="background-color:#a475f9;">Simulation</span>
+                        <span class="se-feed-date">Planetary Scene</span>
+                    </div>
+                    <div class="se-feed-header"><h4>行星探测光学场景模拟与机器人系统</h4></div>
+                    <p class="se-feed-desc">服务行星表面场景感知、视觉导航、机器人验证和任务可视仿真研究。</p>
+                </div>
+                <div class="se-feed-item">
+                    <div class="se-feed-meta">
+                        <span class="plat-badge" style="background-color:#58a6ff;">Optics</span>
+                        <span class="se-feed-date">On-orbit Measurement</span>
+                    </div>
+                    <div class="se-feed-header"><h4>空间在轨光学测量模拟实验系统</h4></div>
+                    <p class="se-feed-desc">面向在轨光学测量、空间目标感知与复杂场景实验验证提供条件支撑。</p>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="margin-bottom:40px;">
+                <h2 class="se-feed-title" style="border-left-color: #a475f9;">任务支撑 (Programs)</h2>
+                <div class="se-feed-item" style="border-color: rgba(164, 117, 249, 0.1);">
+                    <div class="se-feed-meta">
+                        <span class="plat-badge" style="background-color:#a475f9;">National</span>
+                        <span class="se-feed-date">Major Program</span>
+                    </div>
+                    <div class="se-feed-header"><h4>国家重点研发计划</h4></div>
+                    <p class="se-feed-desc">围绕国家空间科技任务需求开展关键技术攻关。</p>
+                </div>
+                <div class="se-feed-item" style="border-color: rgba(164, 117, 249, 0.1);">
+                    <div class="se-feed-meta">
+                        <span class="plat-badge" style="background-color:#0084ff;">NSFC</span>
+                        <span class="se-feed-date">Foundation</span>
+                    </div>
+                    <div class="se-feed-header"><h4>国家自然科学基金面上项目和青年项目</h4></div>
+                    <p class="se-feed-desc">支撑空间科学、智能导航、视觉感知与复杂系统动力学等基础研究。</p>
+                </div>
+                <div class="se-feed-item" style="border-color: rgba(164, 117, 249, 0.1);">
+                    <div class="se-feed-meta">
+                        <span class="plat-badge" style="background-color:#fb7299;">CAS</span>
+                        <span class="se-feed-date">Strategic Projects</span>
+                    </div>
+                    <div class="se-feed-header"><h4>抢占科技制高点课题、中科院重点部署课题、中科院先导专项 A 类</h4></div>
+                    <p class="se-feed-desc">面向地月空间专项和深空探测任务，推进前沿方向和工程应用协同发展。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="row se-feed-container">
+            <div class="col-lg-12">
+                <h2 class="se-feed-title" style="border-left-color: #e2a02b;">联系窗口 (Contact Window)</h2>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="se-feed-item">
+                    <div class="se-feed-meta">
+                        <span class="plat-badge" style="background-color:#a475f9;">Director</span>
+                    </div>
+                    <div class="se-feed-header"><h4>万雪</h4></div>
+                    <p class="se-feed-desc">研究室副主任（主持工作）<br><a href="mailto:wanxue@csu.ac.cn">wanxue@csu.ac.cn</a></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="se-feed-item">
+                    <div class="se-feed-meta">
+                        <span class="plat-badge" style="background-color:#58a6ff;">Deputy</span>
+                    </div>
+                    <div class="se-feed-header"><h4>王蜀泉</h4></div>
+                    <p class="se-feed-desc">研究室副主任<br><a href="mailto:shuquan.wang@csu.ac.cn">shuquan.wang@csu.ac.cn</a></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="se-feed-item">
+                    <div class="se-feed-meta">
+                        <span class="plat-badge" style="background-color:#24292e;">Secretary</span>
+                    </div>
+                    <div class="se-feed-header"><h4>张霞</h4></div>
+                    <p class="se-feed-desc">科研财务秘书<br><a href="mailto:zhangxia@csu.ac.cn">zhangxia@csu.ac.cn</a></p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="se-feed-item">
+                    <div class="se-feed-meta">
+                        <span class="plat-badge" style="background-color:#0084ff;">Counselor</span>
+                    </div>
+                    <div class="se-feed-header"><h4>王宇航</h4></div>
+                    <p class="se-feed-desc">辅导员<br><a href="mailto:wangyuhang@csu.ac.cn">wangyuhang@csu.ac.cn</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="row se-final">
+            <div class="col-lg-12">
+                <h2>加入地月空间与深空探索任务</h2>
+                <p>面向真实空间任务问题，在智能感知、自主导航、任务设计、可视仿真和人机交互中建立自己的研究坐标。</p>
+                <a href="mailto:wanxue@csu.ac.cn" class="se-event-button">咨询招生信息 (Admission Contact)</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                    <p class="copyright">
+                        Copyright &copy; 空间探索技术研究室 2027<br>
+                        中国科学院空间应用工程与技术中心
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/hux-blog.min.js"></script>
+    <script>
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                if (!$navbar || !$collapse) return;
+                $navbar.className = " ";
+                setTimeout(function () {
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px";
+                    }
+                }, 400);
+            },
+            open: function () {
+                if (!$navbar || !$collapse) return;
+                $collapse.style.height = "auto";
+                $navbar.className += " in";
+            }
+        };
+
+        if ($toggle && $navbar && $collapse) {
+            $toggle.addEventListener('click', function () {
+                if ($navbar.className.indexOf('in') > 0) {
+                    __HuxNav__.close();
+                } else {
+                    __HuxNav__.open();
+                }
+            });
+
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.navbar-toggle')) return;
+                if ($navbar.contains(e.target)) {
+                    if ($navbar.className.indexOf('in') > 0) {
+                        setTimeout(function () { __HuxNav__.close(); }, 200);
+                    }
+                    return;
+                }
+                __HuxNav__.close();
+            });
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function generateStars(count, size) {
+                var shadows = [];
+                for (var i = 0; i < count; i++) {
+                    var x = Math.random() * 200;
+                    var y = Math.random() * 200;
+                    shadows.push(x + "vw " + y + "vh #fff");
+                }
+                return "width: " + size + "px; height: " + size + "px; border-radius: 50%; box-shadow: " + shadows.join(", ") + ";";
+            }
+
+            var smallL = document.getElementById('layer-small');
+            if (smallL) smallL.style.cssText += generateStars(350, 0.5);
+            var mediumL = document.getElementById('layer-medium');
+            if (mediumL) mediumL.style.cssText += generateStars(100, 1.0);
+            var largeL = document.getElementById('layer-large');
+            if (largeL) largeL.style.cssText += generateStars(35, 1.5);
+
+            ['layer-small', 'layer-medium', 'layer-large'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (el) {
+                    var clone = document.createElement("div");
+                    clone.style.cssText = el.style.cssText;
+                    clone.style.transform = "translate(100vw, -100vh)";
+                    el.appendChild(clone);
+
+                    var clone2 = document.createElement("div");
+                    clone2.style.cssText = el.style.cssText;
+                    clone2.style.transform = "translate(100vw, 0)";
+                    el.appendChild(clone2);
+
+                    var clone3 = document.createElement("div");
+                    clone3.style.cssText = el.style.cssText;
+                    clone3.style.transform = "translate(0, -100vh)";
+                    el.appendChild(clone3);
+                }
+            });
+
+            var SYNODIC_MONTH = 29.53058867;
+            var REFERENCE_NEW_MOON = new Date(Date.UTC(2000, 0, 6, 18, 14, 0)).getTime();
+            var now = new Date().getTime();
+            var diffDays = (now - REFERENCE_NEW_MOON) / (1000 * 60 * 60 * 24);
+            var phase = diffDays % SYNODIC_MONTH;
+            if (phase < 0) phase += SYNODIC_MONTH;
+
+            var phasePercentage = phase / SYNODIC_MONTH;
+            var shadowEl = document.getElementById("moon-phase-shadow");
+            if (shadowEl) {
+                var tx = 0;
+                if (phasePercentage <= 0.5) {
+                    tx = 100 - (phasePercentage * 2 * 100);
+                    shadowEl.style.transform = "translateX(" + tx + "%)";
+                } else {
+                    tx = -100 + ((phasePercentage - 0.5) * 2 * 100);
+                    shadowEl.style.transform = "translateX(" + tx + "%)";
+                }
+
+                if (phasePercentage > 0.45 && phasePercentage < 0.55) {
+                    var moon = document.querySelector('.moon-container');
+                    if (moon) {
+                        moon.style.boxShadow = "0 0 100px rgba(226, 232, 240, 0.6), 0 0 200px rgba(88, 166, 255, 0.4)";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
