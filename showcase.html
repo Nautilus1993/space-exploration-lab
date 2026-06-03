@@ -243,6 +243,16 @@
                 repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 22px);
         }
 
+        .tile-visual img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.96) contrast(1.04);
+        }
+
         .tile-visual::before,
         .tile-visual::after {
             content: "";
@@ -275,6 +285,45 @@
                 linear-gradient(135deg, rgba(226, 160, 43, 0.12), rgba(88, 166, 255, 0.06)),
                 repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 22px),
                 repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 22px);
+        }
+
+        .media-tile.with-photo .tile-visual {
+            background: #050914;
+        }
+
+        .media-tile.with-photo .tile-copy {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 96px 28px 26px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.5) 58%, transparent 100%);
+        }
+
+        .media-tile.video-link {
+            border-color: rgba(226, 160, 43, 0.32);
+            background:
+                linear-gradient(135deg, rgba(226, 160, 43, 0.14), rgba(164, 117, 249, 0.08)),
+                #050914;
+        }
+
+        .media-tile.video-link .tile-visual {
+            background:
+                radial-gradient(circle at 32% 24%, rgba(226, 160, 43, 0.18), transparent 34%),
+                radial-gradient(circle at 80% 70%, rgba(88, 166, 255, 0.15), transparent 38%),
+                linear-gradient(135deg, rgba(226, 160, 43, 0.1), rgba(88, 166, 255, 0.05)),
+                repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 18px);
+        }
+
+        .video-cta {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 16px;
+            border: 1px solid rgba(226, 160, 43, 0.48);
+            border-radius: 999px;
+            color: #ffd27a;
+            background: rgba(226, 160, 43, 0.12);
+            font-size: 0.9rem;
+            font-weight: 900;
         }
 
         .tile-copy {
@@ -448,45 +497,52 @@
         <section class="showcase-section" id="activities">
             <div class="section-head">
                 <h2>学生与课题组活动</h2>
-                <p>这里规划学生平时科研、组会讨论、课题组聚餐、团建交流以及学生自研 Demo 的图片区域。</p>
+                <p>这里展示学生平时科研、课题组聚餐、团建交流和学生 Demo 等活动影像。</p>
             </div>
 
             <div class="activity-grid">
-                <article class="media-tile activity large">
-                    <div class="tile-visual"></div>
+                <article class="media-tile activity with-photo large">
+                    <div class="tile-visual">
+                        <img src="img/课题组团建1.jpg" alt="课题组聚餐合影">
+                    </div>
                     <div class="tile-copy">
                         <span class="slot-code">ACTIVITY 01</span>
-                        <h3>学生日常科研</h3>
-                        <p>用于放置学生组会、实验调试、论文讨论、算法联调和工程开发现场照片。</p>
+                        <h3>课题组聚餐</h3>
+                        <p>课题组成员在科研之外的交流时刻，记录团队氛围与学生生活。</p>
                     </div>
                 </article>
 
-                <article class="media-tile activity medium">
-                    <div class="tile-visual"></div>
+                <article class="media-tile activity with-photo medium">
+                    <div class="tile-visual">
+                        <img src="img/课题组团建2.jpg" alt="课题组聚餐活动">
+                    </div>
                     <div class="tile-copy">
                         <span class="slot-code">ACTIVITY 02</span>
-                        <h3>课题组聚餐</h3>
-                        <p>用于放置迎新、毕业、节日聚餐和课题组团建照片。</p>
+                        <h3>团队聚餐花絮</h3>
+                        <p>预留后续继续补充迎新、毕业、节日聚餐和课题组团建照片。</p>
                     </div>
                 </article>
 
-                <article class="media-tile activity small">
-                    <div class="tile-visual"></div>
+                <article class="media-tile activity with-photo small">
+                    <div class="tile-visual">
+                        <img src="img/课题组团建3.jpg" alt="课题组活动现场">
+                    </div>
                     <div class="tile-copy">
                         <span class="slot-code">ACTIVITY 03</span>
-                        <h3>学生 Demo 展示</h3>
-                        <p>用于放置学生自研系统、仿真平台、算法演示和工程样机展示照片。</p>
+                        <h3>活动现场</h3>
+                        <p>展示学生与老师日常交流、聚餐和团队活动的现场照片。</p>
                     </div>
                 </article>
 
-                <article class="media-tile activity small">
+                <a class="media-tile activity video-link small" href="https://www.xiaohongshu.com/explore/6a05dcd100000000060220d2?app_platform=android&amp;ignoreEngage=true&amp;app_version=9.33.0&amp;share_from_user_hidden=true&amp;xsec_source=app_share&amp;type=video&amp;xsec_token=CBw4QaKELdZzQLif1tv8-2szhCQxpj3-kbBXwVkMbx7q0=&amp;author_share=1&amp;xhsshare=WeixinSession&amp;shareRedId=ODs6QkU5OkE2NzUyOTgwNjg1OTc4OTc8&amp;apptime=1780482273&amp;share_id=bcf01844327c47a6a9b650d40f6d2c9e&amp;share_channel=wechat&amp;code=9h0SAho6xns&amp;wechatWid=f1d6fe5d1ad4bf17996931c128887678&amp;wechatOrigin=menu" target="_blank" rel="noopener">
                     <div class="tile-visual"></div>
                     <div class="tile-copy">
-                        <span class="slot-code">ACTIVITY 04</span>
-                        <h3>交流与实践</h3>
-                        <p>用于放置学术交流、竞赛实践、外场实验和跨团队合作照片。</p>
+                        <span class="slot-code">VIDEO 01</span>
+                        <h3>小红书视频网页</h3>
+                        <p>点击进入小红书视频页面，查看课题组相关活动视频内容。</p>
+                        <span class="video-cta">打开视频页面</span>
                     </div>
-                </article>
+                </a>
             </div>
         </section>
     </main>
