@@ -43,6 +43,7 @@
         .star-field {
             position: fixed;
             inset: 0;
+            z-index: 0;
             pointer-events: none;
             background-image:
                 radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.8) 0 1px, transparent 1px),
@@ -51,6 +52,174 @@
                 radial-gradient(circle at 88% 62%, rgba(226, 160, 43, 0.7) 0 1px, transparent 1px);
             background-size: 180px 180px, 260px 260px, 320px 320px, 420px 420px;
             opacity: 0.5;
+            animation: star-field-drift 42s linear infinite;
+        }
+
+        #dynamic-stars-container {
+            position: fixed;
+            top: -50vh;
+            left: -50vw;
+            width: 200vw;
+            height: 200vh;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.86;
+        }
+
+        .star-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+        }
+
+        .showcase-comet {
+            position: fixed;
+            z-index: 1;
+            width: 170px;
+            height: 2px;
+            pointer-events: none;
+            border-radius: 999px;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.95), rgba(88, 166, 255, 0.5), transparent);
+            filter: drop-shadow(0 0 8px rgba(88, 166, 255, 0.74));
+            opacity: 0;
+            transform: rotate(-45deg);
+            animation: showcase-shooting-star 8.6s linear infinite;
+        }
+
+        .showcase-comet.comet-one {
+            top: 18%;
+            right: -14%;
+            animation-delay: 0.2s;
+        }
+
+        .showcase-comet.comet-two {
+            top: 42%;
+            right: -22%;
+            width: 250px;
+            animation-delay: 3.2s;
+        }
+
+        .showcase-comet.comet-three {
+            top: 8%;
+            right: 18%;
+            width: 130px;
+            animation-delay: 6.1s;
+        }
+
+        .showcase-entry-transition {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 50% 46%, rgba(88, 166, 255, 0.34), transparent 24%),
+                linear-gradient(135deg, #000000 0%, #020713 54%, #000000 100%);
+            animation: showcase-entry-mask 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .showcase-entry-transition::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: min(360px, 54vw);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 1px solid rgba(88, 166, 255, 0.52);
+            box-shadow:
+                0 0 54px rgba(88, 166, 255, 0.36),
+                inset 0 0 46px rgba(164, 117, 249, 0.2);
+            transform: translate(-50%, -50%) scale(0.82);
+            animation: showcase-entry-core 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes animStar {
+            from {
+                transform: translate(50vw, -50vh);
+            }
+            to {
+                transform: translate(-50vw, 50vh);
+            }
+        }
+
+        @keyframes star-field-drift {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-120px, 120px, 0);
+            }
+        }
+
+        @keyframes showcase-shooting-star {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 0, 0) rotate(-45deg);
+            }
+            8% {
+                opacity: 1;
+            }
+            26% {
+                opacity: 0;
+                transform: translate3d(-56vw, 56vw, 0) rotate(-45deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate3d(-56vw, 56vw, 0) rotate(-45deg);
+            }
+        }
+
+        @keyframes showcase-entry-mask {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            72% {
+                opacity: 0.88;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+                transform: scale(1.12);
+            }
+        }
+
+        @keyframes showcase-entry-core {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.82) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.42) rotate(42deg);
+            }
+        }
+
+        @keyframes showcase-rise {
+            0% {
+                opacity: 0;
+                transform: translateY(34px);
+                filter: blur(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes showcase-nav-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-18px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .showcase-nav {
@@ -69,6 +238,8 @@
             backdrop-filter: blur(16px);
             font-size: clamp(0.82rem, 1vw, 1rem);
             font-weight: 900;
+            opacity: 0;
+            animation: showcase-nav-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
         }
 
         .showcase-nav a {
@@ -98,6 +269,7 @@
 
         .showcase-hero {
             position: relative;
+            z-index: 2;
             min-height: 76vh;
             display: grid;
             align-items: end;
@@ -120,6 +292,8 @@
         .hero-content {
             position: relative;
             max-width: 1180px;
+            opacity: 0;
+            animation: showcase-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.42s forwards;
         }
 
         .kicker {
@@ -160,6 +334,16 @@
 
         .showcase-section {
             margin-bottom: 84px;
+            opacity: 0;
+            animation: showcase-rise 0.86s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .showcase-section:nth-child(1) {
+            animation-delay: 0.62s;
+        }
+
+        .showcase-section:nth-child(2) {
+            animation-delay: 0.78s;
         }
 
         .section-head {
@@ -208,6 +392,7 @@
                 linear-gradient(135deg, rgba(88, 166, 255, 0.12), rgba(164, 117, 249, 0.05)),
                 #050914;
             box-shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
+            transform: translateZ(0);
         }
 
         .media-tile.large {
@@ -397,7 +582,16 @@
 </head>
 
 <body>
+    <div class="showcase-entry-transition" aria-hidden="true"></div>
     <div class="star-field"></div>
+    <div id="dynamic-stars-container" aria-hidden="true">
+        <div class="star-layer" id="layer-small" style="animation: animStar 210s linear infinite; opacity: 0.46;"></div>
+        <div class="star-layer" id="layer-medium" style="animation: animStar 128s linear infinite; opacity: 0.68;"></div>
+        <div class="star-layer" id="layer-large" style="animation: animStar 76s linear infinite; opacity: 1;"></div>
+    </div>
+    <div class="showcase-comet comet-one" aria-hidden="true"></div>
+    <div class="showcase-comet comet-two" aria-hidden="true"></div>
+    <div class="showcase-comet comet-three" aria-hidden="true"></div>
 
     <nav class="showcase-nav" aria-label="页面导航">
         <a href="index.html">主页</a>
@@ -524,5 +718,47 @@
     <footer class="footer">
         space-exploration-lab · 空间探索技术研究室
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function generateStars(count, size) {
+                var shadows = [];
+                for (var i = 0; i < count; i++) {
+                    var x = Math.random() * 200;
+                    var y = Math.random() * 200;
+                    var color = i % 7 === 0 ? "rgba(88, 166, 255, 0.95)" : "#fff";
+                    shadows.push(x + "vw " + y + "vh " + color);
+                }
+                return "width: " + size + "px; height: " + size + "px; border-radius: 50%; box-shadow: " + shadows.join(", ") + ";";
+            }
+
+            var smallL = document.getElementById("layer-small");
+            if (smallL) smallL.style.cssText += generateStars(360, 0.5);
+            var mediumL = document.getElementById("layer-medium");
+            if (mediumL) mediumL.style.cssText += generateStars(120, 1);
+            var largeL = document.getElementById("layer-large");
+            if (largeL) largeL.style.cssText += generateStars(44, 1.5);
+
+            ["layer-small", "layer-medium", "layer-large"].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (!el) return;
+
+                var clone = document.createElement("div");
+                clone.style.cssText = el.style.cssText;
+                clone.style.transform = "translate(100vw, -100vh)";
+                el.appendChild(clone);
+
+                var clone2 = document.createElement("div");
+                clone2.style.cssText = el.style.cssText;
+                clone2.style.transform = "translate(100vw, 0)";
+                el.appendChild(clone2);
+
+                var clone3 = document.createElement("div");
+                clone3.style.cssText = el.style.cssText;
+                clone3.style.transform = "translate(0, -100vh)";
+                el.appendChild(clone3);
+            });
+        });
+    </script>
 </body>
 </html>

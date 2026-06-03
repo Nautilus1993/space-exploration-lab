@@ -39,6 +39,109 @@
             text-decoration: none;
         }
 
+        .se-page-transition {
+            position: fixed;
+            inset: 0;
+            z-index: 20000;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(1.08);
+            background:
+                radial-gradient(circle at 50% 48%, rgba(88, 166, 255, 0.28), transparent 28%),
+                radial-gradient(circle at 50% 52%, rgba(164, 117, 249, 0.22), transparent 36%),
+                linear-gradient(135deg, #000000 0%, #020713 52%, #000000 100%);
+            transition: opacity 0.36s ease, transform 0.54s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .se-page-transition::before,
+        .se-page-transition::after {
+            content: "";
+            position: absolute;
+            inset: -20%;
+            background:
+                linear-gradient(115deg, transparent 0 42%, rgba(88, 166, 255, 0.22) 48%, transparent 54%),
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 84px);
+            opacity: 0;
+        }
+
+        .se-page-transition::before {
+            animation: none;
+        }
+
+        .se-page-transition::after {
+            background:
+                radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 1px, transparent 1px),
+                radial-gradient(circle, rgba(88, 166, 255, 0.85) 0 1px, transparent 1px);
+            background-size: 96px 96px, 148px 148px;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .se-page-transition.is-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .se-page-transition.is-active::before {
+            opacity: 1;
+            animation: se-transition-sweep 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .se-page-transition.is-active::after {
+            opacity: 0.58;
+            animation: se-transition-stars 0.7s linear forwards;
+        }
+
+        .se-page-transition-core {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: min(280px, 44vw);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 1px solid rgba(88, 166, 255, 0.52);
+            transform: translate(-50%, -50%) scale(0.74);
+            opacity: 0;
+            box-shadow:
+                0 0 48px rgba(88, 166, 255, 0.38),
+                inset 0 0 42px rgba(164, 117, 249, 0.18);
+        }
+
+        .se-page-transition.is-active .se-page-transition-core {
+            opacity: 1;
+            animation: se-transition-core 0.72s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        body.se-transitioning {
+            overflow: hidden;
+        }
+
+        @keyframes se-transition-sweep {
+            0% {
+                transform: translateX(-34%) skewX(-8deg);
+            }
+            100% {
+                transform: translateX(34%) skewX(-8deg);
+            }
+        }
+
+        @keyframes se-transition-stars {
+            0% {
+                transform: translate3d(20px, -30px, 0) scale(1);
+            }
+            100% {
+                transform: translate3d(-70px, 70px, 0) scale(1.18);
+            }
+        }
+
+        @keyframes se-transition-core {
+            0% {
+                transform: translate(-50%, -50%) scale(0.74) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.28) rotate(50deg);
+            }
+        }
+
         p {
             margin: 0 0 18px;
         }
@@ -390,6 +493,17 @@
 
         .se-advisor-section {
             margin-bottom: 70px;
+        }
+
+        .se-advisor-summary {
+            margin: -18px 0 24px;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            line-height: 1.65;
+        }
+
+        .se-advisor-summary strong {
+            color: #f1f5f9;
         }
 
         .se-advisor-grid {
@@ -855,6 +969,10 @@
 </head>
 
 <body ontouchstart="">
+    <div class="se-page-transition" aria-hidden="true">
+        <div class="se-page-transition-core"></div>
+    </div>
+
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header page-scroll">
@@ -871,7 +989,7 @@
                 <div class="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#top">主页</a></li>
-                        <li><a href="showcase.html">展示</a></li>
+                        <li><a href="showcase.html" data-showcase-transition>展示</a></li>
                     </ul>
                 </div>
             </div>
@@ -908,7 +1026,7 @@
             <div class="col-lg-10 col-lg-offset-1 col-md-12">
                 <div class="se-video-container">
                     <div class="se-intro-panel">
-                        <div class="se-intro-eyebrow">2027 Graduate Admission</div>
+                        <div class="se-intro-eyebrow">2026 Graduate Admission</div>
                         <h2>以 AI 引领太空探索，面向地月空间与深空任务培养交叉型科研人才</h2>
                         <p>
                             空间探索技术研究室秉承中国科学院开拓创新精神，以国家空间强国战略为纲领，开展基础性航天工程前沿理论研究与先进探索技术研发，提出新概念空间探索任务方案，推动革命性空间探索新技术的发展。研究室以 AI 引领太空探索为目标，以任务培育新学科方向，以学科优势制高点带动新任务落实。
@@ -918,11 +1036,11 @@
                         </p>
                         <div class="se-stat-grid">
                             <div class="se-stat"><strong>16</strong><span>固定人员</span></div>
-                            <div class="se-stat"><strong>30+</strong><span>在读研究生</span></div>
-                            <div class="se-stat"><strong>4</strong><span>研究员及正高级工程师</span></div>
-                            <div class="se-stat"><strong>5</strong><span>副研究员及副高级工程师</span></div>
-                            <div class="se-stat"><strong>3</strong><span>中国科学院人才计划</span></div>
-                            <div class="se-stat"><strong>5</strong><span>招生导师信息已公布</span></div>
+                            <div class="se-stat"><strong>20+</strong><span>在读研究生</span></div>
+                            <div class="se-stat"><strong>3</strong><span>研究员及正高级工程师</span></div>
+                            <div class="se-stat"><strong>4</strong><span>副研究员及副高级工程师</span></div>
+                            <div class="se-stat"><strong>2</strong><span>中国科学院人才计划</span></div>
+                            <div class="se-stat"><strong>5</strong><span>已整理导师资料</span></div>
                         </div>
                     </div>
                 </div>
@@ -931,6 +1049,7 @@
 
         <section id="advisors" class="se-advisor-section">
             <h2 class="se-feed-title" style="border-left-color: #e2a02b;">招生导师阵列 (Advisor Matrix)</h2>
+            <p class="se-advisor-summary"><strong>2026 年度招生导师：</strong>根据当前已提供的导师详细资料展示 5 位，其中万雪、王蜀泉、舒磊正、何煜按“类别”字段标注为博导，张碧辉标注为硕导。</p>
 
             <div class="se-advisor-grid">
                 <a class="se-advisor-link" href="http://people.ucas.ac.cn/~wanxue" target="_blank" rel="noopener">
@@ -943,25 +1062,8 @@
                                 <h3 class="se-card-title">万雪</h3>
                                 <span class="se-card-tag">博导</span>
                             </div>
-                            <div class="se-card-subtitle">计算机应用技术、信号与信息处理、电子信息</div>
-                            <p class="se-card-desc">研究员，博士生导师。主要从事深空场景感知、视觉导航定位技术及海量空间科学数据语义理解，关注地月空间大模型、具身智能感知规划决策和新概念科学发现应用。</p>
-                            <div class="se-advisor-more">查看个人主页</div>
-                        </div>
-                    </article>
-                </a>
-
-                <a class="se-advisor-link" href="https://people.ucas.ac.cn/~shuleizheng" target="_blank" rel="noopener">
-                    <article class="se-advisor-card">
-                        <div class="se-advisor-profile">
-                            <img class="se-advisor-avatar" src="舒磊正.jpg" alt="舒磊正">
-                        </div>
-                        <div class="se-card-body">
-                            <div class="se-advisor-name-row">
-                                <h3 class="se-card-title">舒磊正</h3>
-                                <span class="se-card-tag">博导</span>
-                            </div>
-                            <div class="se-card-subtitle">GNSS 导航技术、计算机视觉导航技术、多源信息融合自主导航技术</div>
-                            <p class="se-card-desc">研究员，博士生导师。聚焦航天器自主轨道确定、相对导航、空间 SLAM 及多智能体协同导航，开展地月空间基准构建、分布式授时和自主探测关键技术研究。</p>
+                            <div class="se-card-subtitle">招生专业：计算机应用技术、信号与信息处理、电子信息<br>邮箱：wanxue@csu.ac.cn</div>
+                            <p class="se-card-desc">研究员，博士生导师。本科及硕士毕业于武汉大学遥感信息工程学院，博士毕业于伦敦帝国理工学院。主要从事深空场景感知、视觉导航定位技术、海量空间科学数据语义理解及地外行星图像处理理论研究。</p>
                             <div class="se-advisor-more">查看个人主页</div>
                         </div>
                     </article>
@@ -977,25 +1079,25 @@
                                 <h3 class="se-card-title">王蜀泉</h3>
                                 <span class="se-card-tag">博导</span>
                             </div>
-                            <div class="se-card-subtitle">飞行器设计、计算机应用技术</div>
-                            <p class="se-card-desc">中国科学院特聘核心岗位研究员，博士生导师。研究方向覆盖多学科任务设计与优化、复杂系统动力学与控制，以及地月空间专项时空基准卫星任务设计与实施。</p>
+                            <div class="se-card-subtitle">招生方向：地月空间振动动力学与隔振控制、地月空间多学科任务设计与优化<br>邮箱：shuquan.wang@csu.ac.cn</div>
+                            <p class="se-card-desc">研究员，博士生导师。2002 年获国防科技大学空间工程学士，2005 年获中科院飞行器设计硕士，2010 年获美国科罗拉多大学博尔德校区航天科学与工程博士。研究空间复杂系统动力学与自动化、空间智能系统、空间安全和未来空间任务系统设计。</p>
                             <div class="se-advisor-more">查看个人主页</div>
                         </div>
                     </article>
                 </a>
 
-                <a class="se-advisor-link" href="https://people.ucas.ac.cn/~evanhoo" target="_blank" rel="noopener">
+                <a class="se-advisor-link" href="https://people.ucas.ac.cn/~shuleizheng" target="_blank" rel="noopener">
                     <article class="se-advisor-card">
                         <div class="se-advisor-profile">
-                            <img class="se-advisor-avatar" src="何煜.jpg" alt="何煜">
+                            <img class="se-advisor-avatar" src="舒磊正.jpg" alt="舒磊正">
                         </div>
                         <div class="se-card-body">
                             <div class="se-advisor-name-row">
-                                <h3 class="se-card-title">何煜</h3>
-                                <span class="se-card-tag">硕导</span>
+                                <h3 class="se-card-title">舒磊正</h3>
+                                <span class="se-card-tag">博导</span>
                             </div>
-                            <div class="se-card-subtitle">计算机应用技术、航空宇航科学与技术</div>
-                            <p class="se-card-desc">副研究员，硕士生导师。主要从事计算机图形学、扩展现实、人机交互及航天工程应用研究，关注空间任务可视仿真、地月空间场景建模与任务可视化。</p>
+                            <div class="se-card-subtitle">招生方向：GNSS 导航技术、计算机视觉导航技术、多源信息融合自主导航技术<br>邮箱：shuleizheng@csu.ac.cn</div>
+                            <p class="se-card-desc">研究员，博士生导师。2005 至 2015 年在北京航空航天大学飞行器设计专业完成本、硕、博阶段学习。主要研究航天器自主轨道确定、相对导航、空间 SLAM、多星智能协同导航和月面活动自主探测技术。</p>
                             <div class="se-advisor-more">查看个人主页</div>
                         </div>
                     </article>
@@ -1009,10 +1111,27 @@
                         <div class="se-card-body">
                             <div class="se-advisor-name-row">
                                 <h3 class="se-card-title">张碧辉</h3>
+                                <span class="se-card-tag">硕导</span>
+                            </div>
+                            <div class="se-card-subtitle">招生方向：飞行器多源组合导航、飞行器软件任务调度系统设计、飞行器总体设计<br>邮箱：zhangbh@csu.ac.cn</div>
+                            <p class="se-card-desc">高级工程师，硕士生导师。本科、硕士毕业于北京航空航天大学飞行器设计专业，曾从事彩虹系列无人机结构强度设计与总体设计。现主要研究卫星、无人机、eVTOL 等飞行器多源组合导航，以及 RT Linux、FreeRTOS 等实时任务调度系统。</p>
+                            <div class="se-advisor-more">查看个人主页</div>
+                        </div>
+                    </article>
+                </a>
+
+                <a class="se-advisor-link" href="https://people.ucas.ac.cn/~evanhoo" target="_blank" rel="noopener">
+                    <article class="se-advisor-card">
+                        <div class="se-advisor-profile">
+                            <img class="se-advisor-avatar" src="何煜.jpg" alt="何煜">
+                        </div>
+                        <div class="se-card-body">
+                            <div class="se-advisor-name-row">
+                                <h3 class="se-card-title">何煜</h3>
                                 <span class="se-card-tag">博导</span>
                             </div>
-                            <div class="se-card-subtitle">飞行器多源组合导航、视觉感知、FPGA 深度学习算法部署</div>
-                            <p class="se-card-desc">高级工程师，围绕无人飞行器多源组合导航、星载 AI 计算机设计、功能安全神经网络推理部署开展研究，面向合作场景飞行器智能导航与异常状态监测。</p>
+                            <div class="se-card-subtitle">招生方向：地月空间场景建模与真实感渲染；计算机应用技术、计算机技术<br>邮箱：heyu@csu.ac.cn</div>
+                            <p class="se-card-desc">副研究员，博士生导师。2019 年获浙江工业大学博士学位，曾在英国 NCCA、香港城市大学访问，并在清华大学计算机系从事博士后研究。主要从事三维视觉、图形学、扩展现实、人机交互及航天工程应用研究，主导研制中国空间站首个天地协同混合现实引导系统。</p>
                             <div class="se-advisor-more">查看个人主页</div>
                         </div>
                     </article>
@@ -1280,6 +1399,24 @@
                     clone3.style.transform = "translate(0, -100vh)";
                     el.appendChild(clone3);
                 }
+            });
+
+            document.querySelectorAll('a[data-showcase-transition], a[href="showcase.html"]').forEach(function (link) {
+                link.addEventListener('click', function (event) {
+                    var target = link.getAttribute('target');
+                    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || target === '_blank') return;
+
+                    event.preventDefault();
+                    var href = link.getAttribute('href');
+                    var transition = document.querySelector('.se-page-transition');
+                    document.body.classList.add('se-transitioning');
+                    if (transition) {
+                        transition.classList.add('is-active');
+                    }
+                    setTimeout(function () {
+                        window.location.href = href;
+                    }, 560);
+                });
             });
 
             var SYNODIC_MONTH = 29.53058867;
