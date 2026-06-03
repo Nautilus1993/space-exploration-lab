@@ -315,7 +315,6 @@
         .se-intro-eyebrow,
         .se-card-subtitle,
         .se-feed-date,
-        .se-gallery-caption,
         .se-meta {
             letter-spacing: 0 !important;
         }
@@ -384,45 +383,6 @@
             padding-left: 15px;
         }
 
-        .se-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-        }
-
-        .se-gallery-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            aspect-ratio: 4 / 3;
-            background: #0d1b2a;
-            border: 1px solid rgba(164, 117, 249, 0.15);
-            cursor: default;
-        }
-
-        .se-gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .se-gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .se-gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 9px 12px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
-            color: #cbd5e1;
-            font-size: 0.85rem;
-        }
-
         .se-grid {
             margin-bottom: 60px;
         }
@@ -444,6 +404,60 @@
             transform: translateY(-8px);
             border-color: rgba(226, 232, 240, 0.3);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(88, 166, 255, 0.1);
+        }
+
+        .se-advisor-link {
+            display: block;
+            color: inherit;
+            text-decoration: none !important;
+        }
+
+        .se-advisor-link:hover,
+        .se-advisor-link:focus {
+            color: inherit;
+            text-decoration: none !important;
+            outline: none;
+        }
+
+        .se-advisor-link:focus .se-card {
+            border-color: rgba(88, 166, 255, 0.55);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 24px rgba(88, 166, 255, 0.18);
+        }
+
+        .se-advisor-avatar {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 18px;
+            border: 2px solid rgba(88, 166, 255, 0.45);
+            background: #0d1b2a;
+            box-shadow: 0 0 18px rgba(88, 166, 255, 0.22);
+        }
+
+        .se-advisor-name-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .se-advisor-name-row .se-card-title,
+        .se-advisor-name-row .se-card-tag {
+            margin: 0;
+        }
+
+        .se-advisor-more {
+            color: #58a6ff;
+            font-size: 0.85rem;
+            font-weight: 800;
+            margin-top: 16px;
+        }
+
+        .se-advisor-link:hover .se-advisor-more,
+        .se-advisor-link:focus .se-advisor-more {
+            color: #a475f9;
         }
 
         .se-card-body {
@@ -758,119 +772,94 @@
             </div>
         </section>
 
-        <section class="row se-section">
-            <div class="col-lg-12">
-                <h2 class="se-feed-title" style="border-left-color: #a475f9;">导师图库 (Advisor Gallery)</h2>
-            </div>
-            <div class="col-lg-12">
-                <div class="se-gallery">
-                    <div class="se-gallery-item">
-                        <img src="万雪.jpg" alt="万雪">
-                        <div class="se-gallery-caption">万雪 · 博导</div>
-                    </div>
-                    <div class="se-gallery-item">
-                        <img src="舒磊正.jpg" alt="舒磊正">
-                        <div class="se-gallery-caption">舒磊正 · 博导</div>
-                    </div>
-                    <div class="se-gallery-item">
-                        <img src="王蜀泉.jpg" alt="王蜀泉">
-                        <div class="se-gallery-caption">王蜀泉 · 博导</div>
-                    </div>
-                    <div class="se-gallery-item">
-                        <img src="何煜.jpg" alt="何煜">
-                        <div class="se-gallery-caption">何煜 · 硕导</div>
-                    </div>
-                    <div class="se-gallery-item">
-                        <img src="张碧辉.jpg" alt="张碧辉">
-                        <div class="se-gallery-caption">张碧辉 · 博导</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="advisors" class="row se-grid">
             <div class="col-lg-12">
                 <h2 class="se-feed-title" style="border-left-color: #e2a02b;">招生导师阵列 (Advisor Matrix)</h2>
             </div>
 
             <div class="col-md-4 col-sm-6">
-                <div class="se-card">
-                    <div class="se-card-body">
-                        <span class="se-card-tag">博导</span>
-                        <h3 class="se-card-title">万雪</h3>
-                        <div class="se-card-subtitle">计算机应用技术、信号与信息处理、电子信息</div>
-                        <p class="se-card-desc">研究员，博士生导师。主要从事深空场景感知、视觉导航定位技术及海量空间科学数据语义理解等研究。</p>
-                        <ul class="se-topic-list">
-                            <li>地月空间作为多智能体决策大脑的大模型研究</li>
-                            <li>地月空间具身智能感知、规划、决策前沿课题研究</li>
-                            <li>地月空间大模型针对新概念科学发现的应用探索和研究</li>
-                        </ul>
+                <a class="se-advisor-link" href="http://people.ucas.ac.cn/~wanxue" target="_blank" rel="noopener">
+                    <div class="se-card">
+                        <div class="se-card-body">
+                            <img class="se-advisor-avatar" src="万雪.jpg" alt="万雪">
+                            <div class="se-advisor-name-row">
+                                <h3 class="se-card-title">万雪</h3>
+                                <span class="se-card-tag">博导</span>
+                            </div>
+                            <div class="se-card-subtitle">计算机应用技术、信号与信息处理、电子信息</div>
+                            <p class="se-card-desc">研究员，博士生导师。主要从事深空场景感知、视觉导航定位技术及海量空间科学数据语义理解，关注地月空间大模型、具身智能感知规划决策和新概念科学发现应用。</p>
+                            <div class="se-advisor-more">查看个人主页</div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="col-md-4 col-sm-6">
-                <div class="se-card">
-                    <div class="se-card-body">
-                        <span class="se-card-tag">博导</span>
-                        <h3 class="se-card-title">舒磊正</h3>
-                        <div class="se-card-subtitle">GNSS 导航技术、计算机视觉导航技术、多源信息融合自主导航技术</div>
-                        <p class="se-card-desc">研究员，博士生导师。聚焦航天器自主轨道确定、相对导航、空间 SLAM 及多智能体协同导航。</p>
-                        <ul class="se-topic-list">
-                            <li>基于光钟的地月空间基准构建和分布式授时关键技术研究</li>
-                            <li>DRO 支持下月面活动自主探测技术</li>
-                            <li>基于星间测量的分布式定轨与时间同步</li>
-                        </ul>
+                <a class="se-advisor-link" href="https://people.ucas.ac.cn/~shuleizheng" target="_blank" rel="noopener">
+                    <div class="se-card">
+                        <div class="se-card-body">
+                            <img class="se-advisor-avatar" src="舒磊正.jpg" alt="舒磊正">
+                            <div class="se-advisor-name-row">
+                                <h3 class="se-card-title">舒磊正</h3>
+                                <span class="se-card-tag">博导</span>
+                            </div>
+                            <div class="se-card-subtitle">GNSS 导航技术、计算机视觉导航技术、多源信息融合自主导航技术</div>
+                            <p class="se-card-desc">研究员，博士生导师。聚焦航天器自主轨道确定、相对导航、空间 SLAM 及多智能体协同导航，开展地月空间基准构建、分布式授时和自主探测关键技术研究。</p>
+                            <div class="se-advisor-more">查看个人主页</div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="col-md-4 col-sm-6">
-                <div class="se-card">
-                    <div class="se-card-body">
-                        <span class="se-card-tag">博导</span>
-                        <h3 class="se-card-title">王蜀泉</h3>
-                        <div class="se-card-subtitle">飞行器设计、计算机应用技术</div>
-                        <p class="se-card-desc">中国科学院特聘核心岗位研究员，博士生导师。研究方向覆盖多学科任务设计与优化、复杂系统动力学与控制。</p>
-                        <ul class="se-topic-list">
-                            <li>地月空间光钟稳定运行多学科优化</li>
-                            <li>复杂系统动力学与控制</li>
-                            <li>地月空间专项时空基准卫星任务设计与实施</li>
-                        </ul>
+                <a class="se-advisor-link" href="http://people.ucas.ac.cn/~shuquan" target="_blank" rel="noopener">
+                    <div class="se-card">
+                        <div class="se-card-body">
+                            <img class="se-advisor-avatar" src="王蜀泉.jpg" alt="王蜀泉">
+                            <div class="se-advisor-name-row">
+                                <h3 class="se-card-title">王蜀泉</h3>
+                                <span class="se-card-tag">博导</span>
+                            </div>
+                            <div class="se-card-subtitle">飞行器设计、计算机应用技术</div>
+                            <p class="se-card-desc">中国科学院特聘核心岗位研究员，博士生导师。研究方向覆盖多学科任务设计与优化、复杂系统动力学与控制，以及地月空间专项时空基准卫星任务设计与实施。</p>
+                            <div class="se-advisor-more">查看个人主页</div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="col-md-4 col-sm-6">
-                <div class="se-card">
-                    <div class="se-card-body">
-                        <span class="se-card-tag">硕导</span>
-                        <h3 class="se-card-title">何煜</h3>
-                        <div class="se-card-subtitle">计算机应用技术、航空宇航科学与技术</div>
-                        <p class="se-card-desc">副研究员，硕士生导师。主要从事计算机图形学、扩展现实、人机交互及航天工程应用研究。</p>
-                        <ul class="se-topic-list">
-                            <li>空间任务可视仿真与人机交互</li>
-                            <li>地月空间场景建模与真实感渲染</li>
-                            <li>天地协同混合现实引导系统与任务可视化</li>
-                        </ul>
+                <a class="se-advisor-link" href="https://people.ucas.ac.cn/~evanhoo" target="_blank" rel="noopener">
+                    <div class="se-card">
+                        <div class="se-card-body">
+                            <img class="se-advisor-avatar" src="何煜.jpg" alt="何煜">
+                            <div class="se-advisor-name-row">
+                                <h3 class="se-card-title">何煜</h3>
+                                <span class="se-card-tag">硕导</span>
+                            </div>
+                            <div class="se-card-subtitle">计算机应用技术、航空宇航科学与技术</div>
+                            <p class="se-card-desc">副研究员，硕士生导师。主要从事计算机图形学、扩展现实、人机交互及航天工程应用研究，关注空间任务可视仿真、地月空间场景建模与任务可视化。</p>
+                            <div class="se-advisor-more">查看个人主页</div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="col-md-4 col-sm-6">
-                <div class="se-card">
-                    <div class="se-card-body">
-                        <span class="se-card-tag">博导</span>
-                        <h3 class="se-card-title">张碧辉</h3>
-                        <div class="se-card-subtitle">飞行器多源组合导航、视觉感知、FPGA 深度学习算法部署</div>
-                        <p class="se-card-desc">高级工程师，围绕无人飞行器多源组合导航、星载 AI 计算机设计、功能安全神经网络推理部署开展研究。</p>
-                        <ul class="se-topic-list">
-                            <li>合作场景飞行器智能导航</li>
-                            <li>基于合作靶标进行飞行器视觉相对定位</li>
-                            <li>基于视觉、惯性导航等多模态数据进行飞行器异常状态监测</li>
-                        </ul>
+                <a class="se-advisor-link" href="https://people.ucas.ac.cn/~Zhangbh" target="_blank" rel="noopener">
+                    <div class="se-card">
+                        <div class="se-card-body">
+                            <img class="se-advisor-avatar" src="张碧辉.jpg" alt="张碧辉">
+                            <div class="se-advisor-name-row">
+                                <h3 class="se-card-title">张碧辉</h3>
+                                <span class="se-card-tag">博导</span>
+                            </div>
+                            <div class="se-card-subtitle">飞行器多源组合导航、视觉感知、FPGA 深度学习算法部署</div>
+                            <p class="se-card-desc">高级工程师，围绕无人飞行器多源组合导航、星载 AI 计算机设计、功能安全神经网络推理部署开展研究，面向合作场景飞行器智能导航与异常状态监测。</p>
+                            <div class="se-advisor-more">查看个人主页</div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
 
