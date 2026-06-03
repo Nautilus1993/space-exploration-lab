@@ -49,6 +49,7 @@
 ## 📁 文件说明
 
 - `index.html` - 主页面文件
+- `showcase.html` - 实验室展示页面
 - `README.md` - 项目说明文档
 - `*.jpg` - 导师照片（已嵌入HTML中）
 - `基本信息.txt` - 原始信息文件

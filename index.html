@@ -388,98 +388,6 @@
             margin-bottom: 60px;
         }
 
-        .se-showcase-section {
-            margin-bottom: 60px;
-        }
-
-        .se-showcase-intro {
-            max-width: 760px;
-            color: #94a3b8;
-            font-size: 0.96rem;
-            line-height: 1.75;
-            margin: -12px 0 28px;
-        }
-
-        .se-showcase-block {
-            margin-bottom: 34px;
-        }
-
-        .se-showcase-label {
-            color: #58a6ff;
-            font-size: 0.82rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 14px;
-        }
-
-        .se-showcase-label.activity {
-            color: #e2a02b;
-        }
-
-        .se-photo-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .se-photo-card {
-            background: rgba(6, 10, 18, 0.72);
-            border: 1px solid rgba(88, 166, 255, 0.12);
-            border-radius: 12px;
-            overflow: hidden;
-            min-height: 100%;
-        }
-
-        .se-photo-frame {
-            position: relative;
-            aspect-ratio: 4 / 3;
-            overflow: hidden;
-            background:
-                linear-gradient(135deg, rgba(88, 166, 255, 0.12), rgba(164, 117, 249, 0.08)),
-                repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px),
-                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px),
-                #07101d;
-        }
-
-        .se-photo-frame::after {
-            content: "";
-            position: absolute;
-            inset: 16px;
-            border: 1px dashed rgba(226, 232, 240, 0.24);
-        }
-
-        .se-photo-placeholder {
-            position: absolute;
-            left: 18px;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #cbd5e1;
-            font-size: 0.86rem;
-            font-weight: 800;
-            text-align: center;
-            z-index: 1;
-        }
-
-        .se-photo-meta {
-            padding: 16px 18px 18px;
-        }
-
-        .se-photo-meta h3 {
-            color: #f1f5f9;
-            font-size: 1.05rem;
-            font-weight: 800;
-            line-height: 1.4;
-            margin: 0 0 8px;
-        }
-
-        .se-photo-meta p {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            line-height: 1.65;
-            margin: 0;
-        }
-
         .se-card {
             background-color: rgba(6, 10, 18, 0.7);
             border: 1px solid rgba(88, 166, 255, 0.1);
@@ -719,13 +627,82 @@
             margin: 0;
         }
 
+        body {
+            font-size: 18px;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav li a {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        header.intro-header .site-heading h1 {
+            font-size: clamp(4.2rem, 5.8vw, 6.4rem);
+        }
+
+        header.intro-header .site-heading .subheading.eng {
+            font-size: 2rem;
+        }
+
+        header.intro-header .site-heading .subheading.chn {
+            font-size: 2.2rem;
+        }
+
+        .se-intro-eyebrow {
+            font-size: 1.55rem;
+        }
+
+        .se-intro-panel h2 {
+            font-size: 3.8rem;
+        }
+
+        .se-intro-panel p {
+            font-size: 1.7rem;
+        }
+
+        .se-stat strong {
+            font-size: 3.1rem;
+        }
+
+        .se-stat span,
+        .se-card-tag,
+        .se-feed-tag {
+            font-size: 1.45rem;
+        }
+
+        .se-feed-title {
+            font-size: 2.55rem;
+        }
+
+        .se-card-title {
+            font-size: 2.2rem;
+        }
+
+        .se-card-subtitle {
+            font-size: 1.55rem;
+        }
+
+        .se-card-desc,
+        .se-topic-list,
+        .se-feed-body p {
+            font-size: 1.6rem;
+        }
+
+        .se-advisor-more,
+        .se-feed-date,
+        .se-event-button,
+        footer .copyright {
+            font-size: 1.45rem;
+        }
+
+        .se-feed-header h4 {
+            font-size: 2rem;
+        }
+
         @media (max-width: 991px) {
             .se-stat-grid {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .se-photo-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
@@ -768,10 +745,6 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .se-photo-grid {
-                grid-template-columns: 1fr;
-            }
-
             .se-feed-meta {
                 align-items: flex-start;
                 flex-direction: column;
@@ -812,7 +785,7 @@
                 <div class="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#top">主页</a></li>
-                        <li><a href="#showcase">展示</a></li>
+                        <li><a href="showcase.html">展示</a></li>
                     </ul>
                 </div>
             </div>
@@ -866,99 +839,6 @@
                             <div class="se-stat"><strong>5</strong><span>招生导师信息已公布</span></div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="showcase" class="row se-showcase-section">
-            <div class="col-lg-12">
-                <h2 class="se-feed-title" style="border-left-color: #a475f9;">实验室展示 (Showcase)</h2>
-                <p class="se-showcase-intro">
-                    展示区预留为实验室图片页面，后续主要更新设备平台、实验环境、学生日常活动、课题组聚餐和学生 Demo 等照片。
-                </p>
-            </div>
-
-            <div class="col-lg-12 se-showcase-block">
-                <div class="se-showcase-label">Lab Equipment</div>
-                <div class="se-photo-grid">
-                    <article class="se-photo-card">
-                        <div class="se-photo-frame">
-                            <div class="se-photo-placeholder">设备图片待更新</div>
-                        </div>
-                        <div class="se-photo-meta">
-                            <h3>星载 GNSS 导航接收机平台</h3>
-                            <p>用于展示接收机设计、测试工装、联调环境和任务验证现场。</p>
-                        </div>
-                    </article>
-                    <article class="se-photo-card">
-                        <div class="se-photo-frame">
-                            <div class="se-photo-placeholder">设备图片待更新</div>
-                        </div>
-                        <div class="se-photo-meta">
-                            <h3>行星探测场景模拟系统</h3>
-                            <p>用于展示光学场景模拟、机器人实验、地外表面感知验证环境。</p>
-                        </div>
-                    </article>
-                    <article class="se-photo-card">
-                        <div class="se-photo-frame">
-                            <div class="se-photo-placeholder">设备图片待更新</div>
-                        </div>
-                        <div class="se-photo-meta">
-                            <h3>在轨光学测量模拟系统</h3>
-                            <p>用于展示空间目标观测、视觉测量、相对导航仿真与测试设备。</p>
-                        </div>
-                    </article>
-                    <article class="se-photo-card">
-                        <div class="se-photo-frame">
-                            <div class="se-photo-placeholder">设备图片待更新</div>
-                        </div>
-                        <div class="se-photo-meta">
-                            <h3>可视仿真与交互验证环境</h3>
-                            <p>用于展示扩展现实、人机交互、任务可视化和学生 Demo 运行环境。</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <div class="col-lg-12 se-showcase-block">
-                <div class="se-showcase-label activity">Student Activities</div>
-                <div class="se-photo-grid">
-                    <article class="se-photo-card">
-                        <div class="se-photo-frame">
-                            <div class="se-photo-placeholder">活动图片待更新</div>
-                        </div>
-                        <div class="se-photo-meta">
-                            <h3>学生日常科研</h3>
-                            <p>预留学生平时组会、实验调试、论文讨论和工程联调照片。</p>
-                        </div>
-                    </article>
-                    <article class="se-photo-card">
-                        <div class="se-photo-frame">
-                            <div class="se-photo-placeholder">活动图片待更新</div>
-                        </div>
-                        <div class="se-photo-meta">
-                            <h3>课题组聚餐</h3>
-                            <p>预留迎新、毕业、节日聚餐和课题组团建照片。</p>
-                        </div>
-                    </article>
-                    <article class="se-photo-card">
-                        <div class="se-photo-frame">
-                            <div class="se-photo-placeholder">Demo 展示待更新</div>
-                        </div>
-                        <div class="se-photo-meta">
-                            <h3>学生 Demo 展示</h3>
-                            <p>预留学生自研系统、仿真平台、算法演示和工程样机展示照片。</p>
-                        </div>
-                    </article>
-                    <article class="se-photo-card">
-                        <div class="se-photo-frame">
-                            <div class="se-photo-placeholder">活动图片待更新</div>
-                        </div>
-                        <div class="se-photo-meta">
-                            <h3>交流与实践</h3>
-                            <p>预留学术交流、竞赛实践、外场实验和跨团队合作照片。</p>
-                        </div>
-                    </article>
                 </div>
             </div>
         </section>
