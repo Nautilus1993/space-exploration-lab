@@ -314,6 +314,31 @@
                 repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 18px);
         }
 
+        .video-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 88px;
+            height: 88px;
+            border: 1px solid rgba(255, 210, 122, 0.58);
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.34);
+            box-shadow: 0 0 36px rgba(226, 160, 43, 0.26);
+            transform: translate(-50%, -50%);
+        }
+
+        .video-play::before {
+            content: "";
+            position: absolute;
+            top: 27px;
+            left: 35px;
+            width: 0;
+            height: 0;
+            border-top: 17px solid transparent;
+            border-bottom: 17px solid transparent;
+            border-left: 25px solid #ffd27a;
+        }
+
         .video-cta {
             display: inline-block;
             margin-top: 18px;
@@ -534,13 +559,15 @@
                     </div>
                 </article>
 
-                <a class="media-tile activity video-link small" href="https://www.xiaohongshu.com/explore/6a05dcd100000000060220d2?app_platform=android&amp;ignoreEngage=true&amp;app_version=9.33.0&amp;share_from_user_hidden=true&amp;xsec_source=app_share&amp;type=video&amp;xsec_token=CBw4QaKELdZzQLif1tv8-2szhCQxpj3-kbBXwVkMbx7q0=&amp;author_share=1&amp;xhsshare=WeixinSession&amp;shareRedId=ODs6QkU5OkE2NzUyOTgwNjg1OTc4OTc8&amp;apptime=1780482273&amp;share_id=bcf01844327c47a6a9b650d40f6d2c9e&amp;share_channel=wechat&amp;code=9h0SAho6xns&amp;wechatWid=f1d6fe5d1ad4bf17996931c128887678&amp;wechatOrigin=menu" target="_blank" rel="noopener">
-                    <div class="tile-visual"></div>
+                <a class="media-tile activity video-link small" href="https://www.xiaohongshu.com/discovery/item/6a05dcd100000000060220d2?source=webshare&amp;xhsshare=pc_web&amp;xsec_token=CBw4QaKELdZzQLif1tv8-2szhCQxpj3-kbBXwVkMbx7q0=&amp;xsec_source=pc_share" target="_blank" rel="noopener">
+                    <div class="tile-visual">
+                        <span class="video-play" aria-hidden="true"></span>
+                    </div>
                     <div class="tile-copy">
                         <span class="slot-code">VIDEO 01</span>
-                        <h3>小红书视频网页</h3>
-                        <p>点击进入小红书视频页面，查看课题组相关活动视频内容。</p>
-                        <span class="video-cta">打开视频页面</span>
+                        <h3>复刻了 xlerobot 并尝试接入 openclaw</h3>
+                        <p>点击进入小红书视频网页，查看学生 Demo 相关视频内容。</p>
+                        <span class="video-cta">打开小红书视频</span>
                     </div>
                 </a>
             </div>
