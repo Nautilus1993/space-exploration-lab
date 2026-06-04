@@ -346,6 +346,10 @@
             animation-delay: 0.78s;
         }
 
+        .showcase-section:nth-child(3) {
+            animation-delay: 0.92s;
+        }
+
         .section-head {
             display: grid;
             grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.65fr);
@@ -371,6 +375,12 @@
         }
 
         .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .video-grid {
             display: grid;
             grid-template-columns: repeat(12, minmax(0, 1fr));
             gap: 22px;
@@ -402,7 +412,14 @@
 
         .media-tile.feature-photo {
             grid-column: 1 / -1;
-            min-height: min(72vh, 780px);
+            min-height: min(96vh, 1080px);
+            width: calc(100% + 12vw);
+            margin-left: -6vw;
+            margin-right: -6vw;
+            border-left: 0;
+            border-right: 0;
+            border-radius: 0;
+            box-shadow: 0 28px 90px rgba(0, 0, 0, 0.58), 0 0 40px rgba(88, 166, 255, 0.16);
         }
 
         .media-tile.gallery-wide {
@@ -418,6 +435,16 @@
         .media-tile.gallery-landscape {
             grid-column: span 4;
             min-height: 430px;
+        }
+
+        .media-tile.video-large {
+            grid-column: span 7;
+            min-height: 540px;
+        }
+
+        .media-tile.video-medium {
+            grid-column: span 5;
+            min-height: 540px;
         }
 
         .media-tile.medium {
@@ -458,6 +485,16 @@
             filter: saturate(0.96) contrast(1.04);
         }
 
+        .tile-visual iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+            background: #000;
+        }
+
         .tile-visual::before,
         .tile-visual::after {
             content: "";
@@ -494,6 +531,24 @@
 
         .media-tile.with-photo .tile-visual {
             background: #050914;
+        }
+
+        .media-tile.with-video .tile-visual {
+            background: #000;
+        }
+
+        .media-tile.with-video .tile-visual::before,
+        .media-tile.with-video .tile-visual::after {
+            display: none;
+        }
+
+        .media-tile.with-video .tile-copy {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 78px 28px 24px;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.52) 62%, transparent 100%);
+            pointer-events: none;
         }
 
         .media-tile.photo-only::after {
@@ -593,6 +648,8 @@
             .media-tile.gallery-wide,
             .media-tile.gallery-portrait,
             .media-tile.gallery-landscape,
+            .media-tile.video-large,
+            .media-tile.video-medium,
             .media-tile.medium,
             .media-tile.small,
             .activity-grid .media-tile.large,
@@ -621,6 +678,13 @@
                 left: 20px;
                 right: 20px;
                 justify-content: center;
+            }
+
+            .media-tile.feature-photo {
+                width: calc(100% + 40px);
+                margin-left: -20px;
+                margin-right: -20px;
+                min-height: 72vh;
             }
         }
     </style>
@@ -678,6 +742,36 @@
                 <article class="media-tile equipment with-photo photo-only gallery-landscape">
                     <div class="tile-visual">
                         <img src="img/实验室照片3.jpg" alt="实验室平台照片">
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="showcase-section" id="videos">
+            <div class="section-head">
+                <h2>视频 Demo</h2>
+            </div>
+
+            <div class="video-grid">
+                <article class="media-tile with-video video-large">
+                    <div class="tile-visual">
+                        <iframe src="https://player.bilibili.com/player.html?bvid=BV1VfdzBrEpc&page=1&high_quality=1&danmaku=0" title="SpaceMind: VLM Agent for Space Robot" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="tile-copy">
+                        <span class="slot-code">BILIBILI 01</span>
+                        <h3>SpaceMind 智能空间机器人</h3>
+                        <p>VLM Agent for Space Robot。</p>
+                    </div>
+                </article>
+
+                <article class="media-tile with-video video-medium">
+                    <div class="tile-visual">
+                        <iframe src="https://player.bilibili.com/player.html?bvid=BV1Y9coziEMZ&page=1&high_quality=1&danmaku=0" title="SpaceSense-Bench: A Large-Scale Multi-Modal Benchmark for Spacecraft Perception" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="tile-copy">
+                        <span class="slot-code">BILIBILI 02</span>
+                        <h3>SpaceSense-Bench</h3>
+                        <p>航天器感知多模态基准演示。</p>
                     </div>
                 </article>
             </div>

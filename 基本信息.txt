@@ -149,4 +149,3 @@ zhangxia@csu.ac.cn
 # demo视频链接
 1. 【SpaceSense-Bench: A Large-Scale Multi-Modal Benchmark for Spacecraft Perception】 https://www.bilibili.com/video/BV1Y9coziEMZ/?share_source=copy_web&vd_source=6417837d66b295e14b762260b8410098
 2. 【SpaceMind: VLM Agent for Space Robot】 https://www.bilibili.com/video/BV1VfdzBrEpc/?share_source=copy_web&vd_source=6417837d66b295e14b762260b8410098
-3. 【You won't believe how this robotic arm "feels" the world! 🤖】 https://www.youtube.com/watch?v=Jr15MohDp78
