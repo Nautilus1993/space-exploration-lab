@@ -400,6 +400,26 @@
             min-height: 560px;
         }
 
+        .media-tile.feature-photo {
+            grid-column: 1 / -1;
+            min-height: min(72vh, 780px);
+        }
+
+        .media-tile.gallery-wide {
+            grid-column: span 5;
+            min-height: 430px;
+        }
+
+        .media-tile.gallery-portrait {
+            grid-column: span 3;
+            min-height: 560px;
+        }
+
+        .media-tile.gallery-landscape {
+            grid-column: span 4;
+            min-height: 430px;
+        }
+
         .media-tile.medium {
             grid-column: span 5;
         }
@@ -476,6 +496,27 @@
             background: #050914;
         }
 
+        .media-tile.photo-only::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.08), transparent 42%, rgba(0, 0, 0, 0.18)),
+                radial-gradient(circle at 18% 14%, rgba(88, 166, 255, 0.16), transparent 26%);
+        }
+
+        .media-tile.photo-only .tile-copy {
+            display: none;
+        }
+
+        .media-tile.feature-photo::after {
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.08), transparent 58%, rgba(0, 0, 0, 0.28)),
+                radial-gradient(circle at 22% 18%, rgba(88, 166, 255, 0.2), transparent 28%),
+                radial-gradient(circle at 78% 78%, rgba(226, 160, 43, 0.12), transparent 32%);
+        }
+
         .media-tile.with-photo .tile-copy {
             left: 0;
             right: 0;
@@ -548,6 +589,10 @@
 
             .media-tile,
             .media-tile.large,
+            .media-tile.feature-photo,
+            .media-tile.gallery-wide,
+            .media-tile.gallery-portrait,
+            .media-tile.gallery-landscape,
             .media-tile.medium,
             .media-tile.small,
             .activity-grid .media-tile.large,
@@ -602,7 +647,6 @@
         <div class="hero-content">
             <div class="kicker">Showcase</div>
             <h1>实验室展示</h1>
-            <p class="hero-lead">这一页专门承载实验室设备、实验平台、学生日常、课题组聚餐和学生 Demo 影像，后续照片可直接替换进对应区域。</p>
         </div>
     </header>
 
@@ -610,52 +654,31 @@
         <section class="showcase-section" id="equipment">
             <div class="section-head">
                 <h2>设备与实验平台</h2>
-                <p>核心图片区优先展示设备、工装、仿真环境和任务验证现场，形成实验室硬件与工程能力的第一视觉印象。</p>
+                <p>研究室科研条件覆盖星载 GNSS 导航接收机设计与研发体系、行星探测光学场景模拟与机器人系统、空间在轨光学测量模拟实验系统，并结合场景仿真、工程联调和可视化交互环境支撑空间探索技术研究。</p>
             </div>
 
             <div class="equipment-grid">
-                <article class="media-tile equipment large">
-                    <div class="tile-visual"></div>
-                    <div class="tile-copy">
-                        <span class="slot-code">EQUIPMENT 01</span>
-                        <h3>星载 GNSS 导航接收机平台</h3>
-                        <p>用于放置接收机设计、测试工装、联调环境和任务验证现场照片。</p>
+                <article class="media-tile equipment with-photo photo-only feature-photo">
+                    <div class="tile-visual">
+                        <img src="img/超级壁纸1.jpg" alt="实验室展示首图">
                     </div>
                 </article>
 
-                <article class="media-tile equipment medium">
-                    <div class="tile-visual"></div>
-                    <div class="tile-copy">
-                        <span class="slot-code">EQUIPMENT 02</span>
-                        <h3>行星探测场景模拟系统</h3>
-                        <p>用于放置光学场景模拟、机器人实验和地外表面感知验证环境照片。</p>
+                <article class="media-tile equipment with-photo photo-only gallery-wide">
+                    <div class="tile-visual">
+                        <img src="img/超级壁纸2.jpg" alt="实验室设备与平台照片">
                     </div>
                 </article>
 
-                <article class="media-tile equipment small">
-                    <div class="tile-visual"></div>
-                    <div class="tile-copy">
-                        <span class="slot-code">EQUIPMENT 03</span>
-                        <h3>在轨光学测量模拟系统</h3>
-                        <p>用于放置空间目标观测、视觉测量和相对导航仿真测试照片。</p>
+                <article class="media-tile equipment with-photo photo-only gallery-portrait">
+                    <div class="tile-visual">
+                        <img src="img/实验室照片2.jpg" alt="实验室现场照片">
                     </div>
                 </article>
 
-                <article class="media-tile equipment small">
-                    <div class="tile-visual"></div>
-                    <div class="tile-copy">
-                        <span class="slot-code">EQUIPMENT 04</span>
-                        <h3>可视仿真与交互验证环境</h3>
-                        <p>用于放置扩展现实、人机交互和任务可视化运行环境照片。</p>
-                    </div>
-                </article>
-
-                <article class="media-tile equipment small">
-                    <div class="tile-visual"></div>
-                    <div class="tile-copy">
-                        <span class="slot-code">EQUIPMENT 05</span>
-                        <h3>外场与联调现场</h3>
-                        <p>用于放置外场实验、载荷联调、系统测试和工程验证照片。</p>
+                <article class="media-tile equipment with-photo photo-only gallery-landscape">
+                    <div class="tile-visual">
+                        <img src="img/实验室照片3.jpg" alt="实验室平台照片">
                     </div>
                 </article>
             </div>
@@ -663,12 +686,23 @@
 
         <section class="showcase-section" id="activities">
             <div class="section-head">
-                <h2>学生与课题组活动</h2>
-                <p>这里展示学生平时科研、课题组聚餐、团建交流和学生 Demo 等活动影像。</p>
+                <h2>学生 Demo 与课题组活动</h2>
+                <p>展示学生自研系统、仿真平台、算法演示、工程样机 Demo，以及课题组聚餐和团队交流影像。</p>
             </div>
 
             <div class="activity-grid">
                 <article class="media-tile activity with-photo large">
+                    <div class="tile-visual">
+                        <img src="img/学生作品1.jpg" alt="学生 Demo 作品展示">
+                    </div>
+                    <div class="tile-copy">
+                        <span class="slot-code">DEMO 01</span>
+                        <h3>学生 Demo 展示</h3>
+                        <p>展示学生自研系统、仿真平台、算法演示和工程样机 Demo。</p>
+                    </div>
+                </article>
+
+                <article class="media-tile activity with-photo medium">
                     <div class="tile-visual">
                         <img src="img/课题组团建1.jpg" alt="课题组聚餐合影">
                     </div>
@@ -679,14 +713,14 @@
                     </div>
                 </article>
 
-                <article class="media-tile activity with-photo medium">
+                <article class="media-tile activity with-photo small">
                     <div class="tile-visual">
                         <img src="img/课题组团建2.jpg" alt="课题组聚餐活动">
                     </div>
                     <div class="tile-copy">
                         <span class="slot-code">ACTIVITY 02</span>
                         <h3>团队聚餐花絮</h3>
-                        <p>预留后续继续补充迎新、毕业、节日聚餐和课题组团建照片。</p>
+                        <p>展示迎新、毕业、节日聚餐和课题组团建中的交流瞬间。</p>
                     </div>
                 </article>
 
@@ -698,17 +732,6 @@
                         <span class="slot-code">ACTIVITY 03</span>
                         <h3>活动现场</h3>
                         <p>展示学生与老师日常交流、聚餐和团队活动的现场照片。</p>
-                    </div>
-                </article>
-
-                <article class="media-tile activity with-photo small">
-                    <div class="tile-visual">
-                        <img src="img/学生作品1.jpg" alt="学生 Demo 作品展示">
-                    </div>
-                    <div class="tile-copy">
-                        <span class="slot-code">ACTIVITY 04</span>
-                        <h3>学生 Demo 展示</h3>
-                        <p>展示学生自研系统、仿真平台、算法演示和工程样机 Demo。</p>
                     </div>
                 </article>
             </div>
