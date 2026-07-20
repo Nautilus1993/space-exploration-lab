@@ -6,7 +6,7 @@
 - `index.html` - 网站主页面
 - `README.md` - 项目说明
 - `.gitignore` - Git忽略文件配置
-- 导师照片文件（5张）
+- 导师照片文件（3张）
 - 基本信息.txt
 
 ## 🚀 方式一：通过GitHub网站上传（推荐）
@@ -21,7 +21,7 @@
 2. 选择 "New repository"
 3. 填写仓库信息：
    - **Repository name**: `space-exploration-lab`（或您喜欢的名字，建议用英文）
-   - **Description**: `空间探索技术研究室招生介绍网页`
+   - **Description**: `数智技术中心招生介绍网页`
    - **Public** ✅ (必须是公开的才能使用GitHub Pages)
    - **Add a README file** ❌ (不勾选，我们已经有了)
 4. 点击 "Create repository"
@@ -32,7 +32,7 @@
    - `index.html`
    - `README.md`
    - `.gitignore`
-   - 所有导师照片（5张.jpg文件）
+   - 所有导师照片（3张.jpg文件）
    - `基本信息.txt`
 3. 在页面底部填写提交信息：
    - **Commit changes** 标题：`初始提交：添加招生介绍网页`
